@@ -3,12 +3,17 @@
  
 How to use the calibration section:
 
-In the folder [data](data/) you will fint the time-series positions for a trapped particle with different laser powers [2.3 mW](data/Data_x_positions_Exp_I.mat), [6.0 mW](data/Data_x_positions_Exp_II.mat) and [9.2 mW](data/Data_x_positions_Exp_III.mat).
+In the folder [data](data/) you will find the time-series positions for a trapped particle with different laser powers [2.3 mW](data/Data_x_positions_Exp_I.mat), [6.0 mW](data/Data_x_positions_Exp_II.mat) and [9.2 mW](data/Data_x_positions_Exp_III.mat). The details of the experimental parameters can be found in Table 1 of the article.
 
 ## Potential and Equipartition Method
 
-Run [pot_analysis.m](pot/pot_analysis.m) to obtain the values of the stiffness given by the potential method. This will call the functions, [prob_dist_energy.m](pot/prob_dist_energy.m), [pot_lfit.m](pot/pot_lfit.m)  and   [pot_nlfit.m](pot/pot_nlfit.m) contained in the folder **[pot](pot/)**.
+Run [pot_analysis.m](pot/pot_analysis.m) to obtain the values of the stiffness given by the potential method, following the steps described in Sec. 3.2 of the main article. This will call [pot_lfit.m](pot/pot_lfit.m)  and   [pot_nlfit.m](pot/pot_nlfit.m) contained in the folder **[pot](pot/)**. 
 
+[pot_lfit.m](pot/pot_lfit.m) returns the estimate of $\kappa_x$ and its error using the weighted linear fitting of the experimental dataset of the energy potential, defined in eq. (13) of the article. This function uses [prob_dist_energy.m](pot/prob_dist_energy.m) to build the experimental data points of the energy.
+
+
+[pot_nlfit.m](pot/pot_nlfit.m) returns the estimate of $\kappa_x$ and its error using the weighted non-linear fitting of the experimental dataset of the distribution, defined in eq. (12) of the article. This function uses [prob_dist_energy.m](pot/prob_dist_energy.m) to build the experimental data points of the probability distribution.
+ 
 
 Run eq_analysis.m to obtain the values of the stiffness given by the equipartition method. This will call the function [eq1d.m](eq/eq1d.m) contained in the folder **[eq](eq/)**.
 
